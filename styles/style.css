@@ -1,0 +1,49 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.presentation {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.navigation {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navigation a:hover {
+    background-color: #555;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #222;
+}
