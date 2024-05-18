@@ -1,49 +1,88 @@
 body {
     background-color: black;
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
+}
+
+.navigation {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navigation a {
+    color: #00ff00;
+    margin: 0 15px;
+    text-decoration: none;
 }
 
 .header {
     text-align: center;
-    padding: 20px 0;
-    font-size: 24px;
-    font-weight: bold;
+    margin-top: 70px;
 }
 
-.presentation {
-    text-align: center;
-    padding: 50px 0;
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
 }
 
-.profile-pic {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
+.header h2 {
+    font-size: 1.5em;
 }
 
-.navigation {
-    text-align: center;
-    margin-top: 50px;
+.terminal {
+    background-color: #000;
+    color: #00ff00;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 5px;
+    border: 2px solid #00ff00; /* Added border */
 }
 
-.navigation a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
+.terminal h3 {
+    border-bottom: 1px solid #00ff00;
+    padding-bottom: 10px;
 }
 
-.navigation a:hover {
-    background-color: #555;
+.terminal p, .terminal ul {
+    color: #00ff00;
+}
+
+.terminal ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.terminal ul li {
+    margin: 5px 0;
+}
+
+.portfolio {
+    background-color: #000; /* Added background color */
+    color: #00ff00; /* Added text color */
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 5px;
+    border: 2px solid #00ff00; /* Added border */
 }
 
 .footer {
     text-align: center;
-    padding: 20px 0;
-    background-color: #222;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
 }
+
+.footer a {
+    color: #00ff00;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
