@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     displaySkills("skills-tools-content", skills);
 });
 
-function typeWriter(elementId, text, speed = 50) {
+function typeWriter(elementId, text, speed = 15) {
     let i = 0;
     const element = document.getElementById(elementId);
     (function type() {
