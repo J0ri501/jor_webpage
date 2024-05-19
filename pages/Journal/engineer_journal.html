@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Journal Terminal</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #000;
+            color: #0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .terminal {
+            background-color: #000;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+        .input-line {
+            display: flex;
+            align-items: center;
+        }
+        .input-line span {
+            margin-right: 10px;
+        }
+        .input-line input {
+            background-color: #000;
+            color: #0f0;
+            border: none;
+            outline: none;
+            width: 300px;
+            font-family: monospace;
+        }
+        .entry {
+            margin-bottom: 20px;
+        }
+        .recent-entries p {
+            margin: 0;
+        }
+    </style>
+    <script>
+        // Datos JSON del journal
+        const journalEntries = {
+            "entries": [
+                {
+                  "date":"2024-05-15",
+                  "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                },
+                {
+                    "date": "2024-05-16",
+                    "content": ".Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..."
+                },
+                {
+                    "date": "2024-05-17",
+                    "content": "..."
+                },
+                {
+                    "date": "2024-05-18",
+                    "content": "..."
+                },
+                {
+                    "date": "2024-05-19",
+                    "content": "..."
+                },
+                {
+                    "date": "2024-05-20",
+                    "content": " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  "
+                },
+                {
+                    "date": "2024-05-21",
+                    "content":"  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Lobortis mattis aliquam faucibus purus in massa tempor nec. Iaculis nunc sed augue lacus. "
+                }
+            ]
+        };
+
+        // Función para mostrar una entrada específica por fecha
+        function showEntryByDate(date) {
+            const entry = journalEntries.entries.find(e => e.date === date);
+            const entryContainer = document.getElementById('entry');
+            if (entry) {
+                entryContainer.innerHTML = `<p class="entry">> ${entry.content}</p>`;
+            } else {
+                entryContainer.innerHTML = `<p class="entry">> No entry found for this date.</p>`;
+            }
+        }
+
+        // Función para mostrar las últimas 3-4 entradas
+        function showRecentEntries() {
+            const recentEntries = journalEntries.entries.slice(-3).reverse();
+            const recentEntriesContainer = document.getElementById('recent-entries');
+            recentEntriesContainer.innerHTML = recentEntries.map(e => `<p>> ${e.date}: ${e.content}</p>`).join('');
+        }
+
+        // Manejar la entrada del usuario
+        function handleInput(event) {
+            if (event.key === 'Enter') {
+                const input = event.target.value;
+                if (input.startsWith('date ')) {
+                    const date = input.slice(5);
+                    showEntryByDate(date);
+                }
+                event.target.value = '';
+            }
+        }
+
+        // Cargar entradas recientes al cargar la página
+        window.onload = showRecentEntries;
+    </script>
+</head>
+<body>
+    <div class="terminal">
+        <h1>Journal Terminal</h1>
+        <span class="input-line"># select a date starting from 2024-05-18</span>
+        <div class="input-line">
+            <span>$</span>
+            <input type="text" id="terminal-input" onkeypress="handleInput(event)" placeholder="date YYYY-MM-DD">
+        </div>
+        <div id="entry"></div>
+        <h2>Recent Entries</h2>
+        <div id="recent-entries"></div>
+    </div>
+</body>
+</html>
+

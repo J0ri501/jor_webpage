@@ -1,11 +1,10 @@
 body {
-    background-color: black;
+    background-color: #222831;
     color: white;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
+    padding: 0;
 }
-
-
 .navigation {
     background-color: #222831;
     border-bottom: 2px solid #ff6600;
@@ -30,24 +29,6 @@ body {
     border-bottom: 2px solid #ff6600;
 }
 
-
-/*
-.navigation {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.navigation a {
-    color: #00ff00;
-    margin: 0 15px;
-    text-decoration: none;
-}
-*/
 .header {
     text-align: center;
     margin-top: 70px;
@@ -63,22 +44,21 @@ body {
 }
 
 .terminal {
-    background-color: #000;
-    color: #00ff00;
+    background-color: #1E1F2F;
+    color: #387ADF;
     padding: 20px;
     margin: 20px auto;
-    width: 80%;
     border-radius: 5px;
-    border: 2px solid #00ff00; /* Added border */
+    border: 2px solid #387ADF; 
+    width: 70%;
 }
-
 .terminal h3 {
-    border-bottom: 1px solid #00ff00;
+    border-bottom: 1px solid #387ADF;
     padding-bottom: 10px;
 }
 
 .terminal p, .terminal ul {
-    color: #00ff00;
+    color: #F7E6C4;
 }
 
 .terminal ul {
@@ -90,6 +70,7 @@ body {
     margin: 5px 0;
 }
 
+
 .portfolio {
     background-color: #000; /* Added background color */
     color: #00ff00; /* Added text color */
@@ -98,7 +79,8 @@ body {
     width: 80%;
     border-radius: 5px;
     border: 2px solid #00ff00; /* Added border */
-}
+} 
+
 
 .footer {
     background-color: #222831;
@@ -123,3 +105,41 @@ body {
 .footer a:hover {
     border-bottom: 2px solid #ff6600;
 }
+
+
+/* Flexbox container for icons and other content */
+.t {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+.t img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .t img {
+        width: 800px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 900px) {
+    .t img {
+        width: 600px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    .t img {
+        width: 450px;
+        height: 100px;
+    }
+}
+
